@@ -9,22 +9,19 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract repayment is Ownable {
 
     struct pdata {
-        uint40 PrincipalAmount;  // total amount of principal  to be paid
-        uint40 NumberOfPayments; // number of payments to pay P&I
+        uint PrincipalAmount;  // total amount of principal  to be paid
+        uint NumberOfPayments; // number of payments to pay P&I
         bool penaltySituation;   // denotes whether penalty payments have been triggered
         bool defaultSituation;   // denotes whether payment stream is in default
-        uint40 Frequency;        // how often payments are due
-        uint40 Currency;         // base currency of stream
+        uint Frequency;        // how often payments are due
+        uint Currency;         // base currency of stream
     }
     
     pdata Details;
 
 
 //    string _baseTokenURI;
-//    uint256 public _price = 0.01 ether;
     bool public _paused;
-//    uint40 public maxTokenIds = 1000;
-//    uint40 public tokenIds;
 
     bool public SaleStarted;
     bool public SaleEnded;
@@ -34,10 +31,10 @@ contract repayment is Ownable {
         _;
     }
 
-    constructor (uint40 amount,  // total amount of principal  to be paid
-        uint40 payments,        // number of payments to pay P&I
-        uint40 frequency,        // how often payments are due
-        uint40 currency) {
+    constructor (uint amount,  // total amount of principal  to be paid
+        uint payments,        // number of payments to pay P&I
+        uint frequency,        // how often payments are due
+        uint currency) {
 
         Details.PrincipalAmount = amount;
         Details.NumberOfPayments = payments;
